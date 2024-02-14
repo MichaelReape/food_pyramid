@@ -1,0 +1,55 @@
+.food-pyramid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.layer-1 {
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 80px solid red;
+  margin-bottom: 10px;
+}
+.layer-2 {
+  width: 120px;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 80px solid gold;
+  margin-bottom: 10px;
+}
+.layer-3 {
+  width: 240px;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 80px solid yellow;
+}
+.layer-4 {
+  width: 360px;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 80px solid blue;
+}
+.layer-5 {
+  width: 480px;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 80px solid brown;
+}
+.layer-6 {
+  width: 600px;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 80px solid green;
+}
+.button-box {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 40px;
+}

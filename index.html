@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Food Pyramid</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <h1>My Food Pyramid</h1>
+    <div class="food-pyramid">
+      <div class="layer-1">
+        <div class="button-box">
+          <button onclick="increase()">+</button>
+          <button type="number" id="test" value="2"></button>
+          <button type="button">-</button>
+        </div>
+      </div>
+      <script>
+        function increase() {
+          var x = document.getElementById("test").value;
+          x = x + 1;
+        }
+      </script>
+      <div class="layer-2">
+        <div class="button-box">
+          <button type="button">+</button>
+          <button>2</button>
+          <button tyspe="button">-</button>
+        </div>
+      </div>
+      <div class="layer-3">
+        <div class="button-box">
+          <button type="button">+</button>
+          <button>3</button>
+          <button type="button">-</button>
+        </div>
+      </div>
+      <div class="layer-4">
+        <div class="button-box">
+          <button type="button">+</button>
+          <button>4</button>
+          <button type="button">-</button>
+        </div>
+      </div>
+      <div class="layer-5">
+        <div class="button-box">
+          <button type="button">+</button>
+          <button>5</button>
+          <button type="button">-</button>
+        </div>
+      </div>
+      <div class="layer-6">
+        <div class="button-box">
+          <button type="button">+</button>
+          <button>6</button>
+          <button type="button">-</button>
+        </div>
+      </div>
+      <div class="record">My Food Pyramid</div>
+    </div>
+  </body>
+</html>
