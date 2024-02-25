@@ -10,139 +10,61 @@
     <div class="food-pyramid">
       <div class="layer-1">
         <div class="button-box">
-          <button type="button" class="increment-1">+</button>
-          <button class="display-1">2</button>
-          <button type="button" class="decrement-1">-</button>
+          <button onclick="increment(1)">+</button>
+          <button class="display" id="display1">2</button>
+          <button onclick="decrement(1)">-</button>
         </div>
       </div>
       <div class="layer-2">
         <div class="button-box">
-          <button type="button" class="increment-2">+</button>
-          <button class="display-2">2</button>
-          <button type="button" class="decrement-2">-</button>
+          <button onclick="increment(2)">+</button>
+          <button class="display" id="display2">2</button>
+          <button onclick="decrement(2)">-</button>
         </div>
       </div>
       <div class="layer-3">
         <div class="button-box">
-          <button type="button" class="increment-3">+</button>
-          <button class="display-3">3</button>
-          <button type="button" class="decrement-3">-</button>
+          <button onclick="increment(3)">+</button>
+          <button class="display" id="display3">3</button>
+          <button onclick="decrement(3)">-</button>
         </div>
       </div>
       <div class="layer-4">
         <div class="button-box">
-          <button type="button" class="increment-4">+</button>
-          <button class="display-4">4</button>
-          <button type="button" class="decrement-4">-</button>
+          <button onclick="increment(4)">+</button>
+          <button class="display" id="display4">4</button>
+          <button onclick="decrement(4)">-</button>
         </div>
       </div>
       <div class="layer-5">
         <div class="button-box">
-          <button type="button" class="increment-5">+</button>
-          <button class="display-5">5</button>
-          <button type="button" class="decrement-5">-</button>
+          <button onclick="increment(5)">+</button>
+          <button class="display" id="display5">5</button>
+          <button onclick="decrement(5)">-</button>
         </div>
       </div>
       <div class="layer-6">
         <div class="button-box">
-          <button type="button" class="increment-6">+</button>
-          <button class="display-6">6</button>
-          <button type="button" class="decrement-6">-</button>
+          <button  onclick="increment(6)">+</button>
+          <button class="display" id="display6">6</button>
+          <button onclick="decrement(6)">-</button>
         </div>
       </div>
       <div class="record">My Food Pyramid</div>
     </div>
 
     <script>
-      let counterDisplay1 = document.querySelector(".display-1");
-      let counterIncrement1 = document.querySelector(".increment-1");
-      let counterDecrement1 = document.querySelector(".decrement-1");
 
-      let counterDisplay2 = document.querySelector(".display-2");
-      let counterIncrement2 = document.querySelector(".increment-2");
-      let counterDecrement2 = document.querySelector(".decrement-2");
+      function increment(layer){
+        var display = document.getElementById('display' + layer);
+        var currentValue = parseInt(display.textContent);
+        display.textContent = currentValue + 1;
+      }
 
-      let counterDisplay3 = document.querySelector(".display-3");
-      let counterIncrement3 = document.querySelector(".increment-3");
-      let counterDecrement3 = document.querySelector(".decrement-3");
-
-      let counterDisplay4 = document.querySelector(".display-4");
-      let counterIncrement4 = document.querySelector(".increment-4");
-      let counterDecrement4 = document.querySelector(".decrement-4");
-
-      let counterDisplay5 = document.querySelector(".display-5");
-      let counterIncrement5 = document.querySelector(".increment-5");
-      let counterDecrement5 = document.querySelector(".decrement-5");
-
-      let counterDisplay6 = document.querySelector(".display-6");
-      let counterIncrement6 = document.querySelector(".increment-6");
-      let counterDecrement6 = document.querySelector(".decrement-6");
-
-      let count1 = 2;
-      let count2 = 2;
-      let count3 = 3;
-      let count4 = 4;
-      let count5 = 5;
-      let count6 = 6;
-
-      updateDisplay();
-
-      counterIncrement1.addEventListener("click", () => {
-        count1++;
-        updateDisplay();
-      });
-      counterDecrement1.addEventListener("click", () => {
-        count1--;
-        updateDisplay();
-      });
-      counterIncrement2.addEventListener("click", () => {
-        count2++;
-        updateDisplay();
-      });
-      counterDecrement2.addEventListener("click", () => {
-        count2--;
-        updateDisplay();
-      });
-      counterIncrement3.addEventListener("click", () => {
-        count3++;
-        updateDisplay();
-      });
-      counterDecrement3.addEventListener("click", () => {
-        count3--;
-        updateDisplay();
-      });
-      counterIncrement4.addEventListener("click", () => {
-        count4++;
-        updateDisplay();
-      });
-      counterDecrement4.addEventListener("click", () => {
-        count4--;
-        updateDisplay();
-      });
-      counterIncrement5.addEventListener("click", () => {
-        count5++;
-        updateDisplay();
-      });
-      counterDecrement5.addEventListener("click", () => {
-        count5--;
-        updateDisplay();
-      });
-      counterIncrement6.addEventListener("click", () => {
-        count6++;
-        updateDisplay();
-      });
-      counterDecrement6.addEventListener("click", () => {
-        count6--;
-        updateDisplay();
-      });
-
-      function updateDisplay() {
-        counterDisplay1.innerHTML = count1;
-        counterDisplay2.innerHTML = count2;
-        counterDisplay3.innerHTML = count3;
-        counterDisplay4.innerHTML = count4;
-        counterDisplay5.innerHTML = count5;
-        counterDisplay6.innerHTML = count6;
+      function decrement(layer){
+        var display = document.getElementById('display' + layer);
+        var currentValue = parseInt(display.textContent);
+        display.textContent = currentValue - 1;
       }
     </script>
   </body>
