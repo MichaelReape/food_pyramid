@@ -10,62 +10,94 @@
     <div class="food-pyramid">
       <div class="layer-1">
         <div class="button-box">
-          <button onclick="increment(1)">+</button>
+          <button class="increment" onclick="increment(1)">+</button>
           <button class="display" id="display1">2</button>
-          <button onclick="decrement(1)">-</button>
+          <button class="decrement" onclick="decrement(1)">-</button>
         </div>
       </div>
       <div class="layer-2">
         <div class="button-box">
-          <button onclick="increment(2)">+</button>
+          <button class="increment" onclick="increment(2)">+</button>
           <button class="display" id="display2">2</button>
-          <button onclick="decrement(2)">-</button>
+          <button class="decrement" onclick="decrement(2)">-</button>
         </div>
       </div>
       <div class="layer-3">
         <div class="button-box">
-          <button onclick="increment(3)">+</button>
+          <button class="increment" onclick="increment(3)">+</button>
           <button class="display" id="display3">3</button>
-          <button onclick="decrement(3)">-</button>
+          <button class="decrement" onclick="decrement(3)">-</button>
         </div>
       </div>
       <div class="layer-4">
         <div class="button-box">
-          <button onclick="increment(4)">+</button>
+          <button class="increment" onclick="increment(4)">+</button>
           <button class="display" id="display4">4</button>
-          <button onclick="decrement(4)">-</button>
+          <button class="decrement" onclick="decrement(4)">-</button>
         </div>
       </div>
       <div class="layer-5">
         <div class="button-box">
-          <button onclick="increment(5)">+</button>
+          <button class="increment" onclick="increment(5)">+</button>
           <button class="display" id="display5">5</button>
-          <button onclick="decrement(5)">-</button>
+          <button class="decrement" onclick="decrement(5)">-</button>
         </div>
       </div>
       <div class="layer-6">
         <div class="button-box">
-          <button  onclick="increment(6)">+</button>
+          <button class="increment"  onclick="increment(6)">+</button>
           <button class="display" id="display6">6</button>
-          <button onclick="decrement(6)">-</button>
+          <button class="decrement" onclick="decrement(6)">-</button>
         </div>
       </div>
       <div class="record">My Food Pyramid</div>
+      <div class="age">
+        <button onclick="setAge(1)">1-4</button>
+        <button onclick="setAge(2)">5-12</button>
+      </div>
     </div>
 
     <script>
+      var pyramidVersion = 0;
+      const rdaUpper = [[0,0,4,3,5,6],[1,1,2,5,5,7]];
+      const rdaLower = [[0,0,2,3,2,3],[0,0,2,3,3,5]];
+    
 
       function increment(layer){
-        var display = document.getElementById('display' + layer);
-        var currentValue = parseInt(display.textContent);
-        display.textContent = currentValue + 1;
+        // grabs the needed displayid
+        var foodLayer = document.querySelectorAll("layer-" + layer);
+        var display = document.getElementById("display" + layer);
+        var currentVal = parseInt(display.textContent);
+        currentVal++;
+        
+        display.textContent = currentVal;
+
+        if(currentVal > rdaUpper[pyramidVersion][layer-1]){
+
+          //cant just call it 
+          // var new height = foodLayer.style.border + 10;
+          //foodLayer.bor
+        }
+        
       }
 
       function decrement(layer){
-        var display = document.getElementById('display' + layer);
-        var currentValue = parseInt(display.textContent);
-        display.textContent = currentValue - 1;
+        var foodLayer = "layer-" + layer;
+        var display = document.getElementById("display" + layer);
+        var currentVal = parseInt(display.textContent);
+        currentVal--;
+        if(currentVal < 0){
+          currentVal = 0;
+        }
+        display.textContent = currentVal;
+
+        // if(currentVal < rdaLower[pyramidVersion][layer-1]){
+          
+        // }
       }
+     
+
+      
     </script>
   </body>
 </html>

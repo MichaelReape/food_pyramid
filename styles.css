@@ -1,55 +1,113 @@
+:root{
+  --sides: 120px;
+
+}
 .food-pyramid {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: gray;
+  position: relative;
+}
+.layer-1 .increment, .layer-1 .decrement{
+  visibility: hidden;
+}
+.layer-1:hover .increment, .layer-1:hover .decrement{
+  visibility: visible;
 }
 .layer-1 {
   width: 0;
   height: 0;
-  border-left: 60px solid transparent;
-  border-right: 60px solid transparent;
-  border-bottom: 80px solid red;
-  /*margin-bottom: 10px;*/
+  border-left: calc(var(--sides)/2) solid transparent;
+  border-right: calc(var(--sides)/2) solid transparent;
+  border-bottom: var(--sides) solid red;
+}
+.layer-2 .increment, .layer-2 .decrement{
+  visibility: hidden;
+}
+.layer-2:hover .increment, .layer-2:hover .decrement{
+  visibility: visible;
 }
 .layer-2 {
-  width: 120px;
+  width: 170px;
   height: 0;
-  border-left: 60px solid transparent;
-  border-right: 60px solid transparent;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
   border-bottom: 80px solid gold;
-  /* margin-bottom: 10px; */
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.layer-3 .increment, .layer-3 .decrement{
+  visibility: hidden;
+}
+.layer-3:hover .increment, .layer-3:hover .decrement{
+  visibility: visible;
 }
 .layer-3 {
-  width: 240px;
+  width: 290px;
   height: 0;
-  border-left: 60px solid transparent;
-  border-right: 60px solid transparent;
-  border-bottom: 80px solid yellow;
+  border-left: calc(var(--sides)/2) solid transparent;
+  border-right: calc(var(--sides)/2) solid transparent;
+  border-bottom: var(--sides) solid yellow;
+}
+.layer-4 .increment, .layer-4 .decrement{
+  visibility: hidden;
+}
+.layer-4:hover .increment, .layer-4:hover .decrement{
+  visibility: visible;
 }
 .layer-4 {
-  width: 360px;
+  width: 410px;
   height: 0;
-  border-left: 60px solid transparent;
-  border-right: 60px solid transparent;
-  border-bottom: 80px solid blue;
+  border-left: calc(var(--sides)/2) solid transparent;
+  border-right: calc(var(--sides)/2) solid transparent;
+  border-bottom: var(--sides) solid blue;
+  /* border-bottom-width: 470; */
+}
+.layer-5 .increment, .layer-5 .decrement{
+  visibility: hidden;
+}
+.layer-5:hover .increment, .layer-5:hover .decrement{
+  visibility: visible;
 }
 .layer-5 {
-  width: 480px;
+  width: 530px;
   height: 0;
-  border-left: 60px solid transparent;
-  border-right: 60px solid transparent;
-  border-bottom: 80px solid brown;
+  border-left: calc(var(--sides)/2) solid transparent;
+  border-right: calc(var(--sides)/2) solid transparent;
+  border-bottom: var(--sides) solid brown;
+}
+.layer-6 .increment, .layer-6 .decrement{
+  visibility: hidden;
+}
+.layer-6:hover .increment, .layer-6:hover .decrement{
+  visibility: visible;
 }
 .layer-6 {
-  width: 600px;
+  width: 650px;
   height: 0;
-  border-left: 60px solid transparent;
-  border-right: 60px solid transparent;
-  border-bottom: 80px solid green;
+  border-left: calc(var(--sides)/2) solid transparent;
+  border-right: calc(var(--sides)/2) solid transparent;
+  border-bottom: var(--sides) solid green;
 }
 .button-box {
   display: flex;
   justify-content: center;
   gap: 5px;
-  margin-top: 40px;
+  margin-top: 35px;
+  /* margin-bottom: auto; */
+  /* position: absolute; */
+  
+}
+.button-box button{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  font-size: medium;
+  
+
+  border: 1px solid black;
+  background-color: gray;
 }
