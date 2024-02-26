@@ -50,10 +50,17 @@
           <button class="decrement" onclick="decrement(6)">-</button>
         </div>
       </div>
-      <div class="record">My Food Pyramid</div>
+      <div class="record">
+        <h1>My Food Pyramid</h1>
+        <p>Enter date in dd/mm/yyyy</p>
+        <input type="text" id="date" />
+        <button onclick="validate(document.getElementById('date').value)">
+          Enter
+        </button>
+      </div>
       <div class="age">
-        <button onclick="setAge(0)">1-4</button>
-        <button onclick="setAge(1)">5-12</button>
+        <button onclick="setAge(0)">1-4 years old</button>
+        <button onclick="setAge(1)">5+ years old</button>
       </div>
     </div>
 
@@ -76,22 +83,26 @@
         pyramidVersion = num;
       }
 
+      function validate(date) {}
+
       function increment(layer) {
         // grabs the needed displayid
         var layerClass = "layer-" + layer;
-        // var foodLayer = document.querySelectorAll(layerClass);
         var display = document.getElementById("display" + layer);
         var currentVal = parseInt(display.textContent);
         currentVal++;
 
         display.textContent = currentVal;
 
-        if (currentVal > rdaUpper[pyramidVersion][layer - 1]) {
-          console.log(rdaUpper[pyramidVersion][layer - 1]);
-          console.log(currentVal);
+        var element = document.getElementById(layerClass);
+        var style = window.getComputedStyle(element);
 
-          var element = document.getElementById(layerClass);
-          var style = window.getComputedStyle(element);
+        if (
+          currentVal > rdaUpper[pyramidVersion][layer - 1] ||
+          currentVal < rdaLower[pyramidVersion][layer - 1]
+        ) {
+          //change color
+          display.style.backgroundColor = "red";
           var increase = parseInt(style.borderBottom) + 10;
 
           console.log(element.style.borderRightWidth);
@@ -99,13 +110,25 @@
           element.style.borderRightWidth = increase + "px";
           element.style.borderBottomWidth = increase + "px";
           element.style.borderLeftWidth = increase + "px";
-          //document.getElementById(layerClass).style.width = 560 + "px";
 
           var oldWidth = parseInt(style.width);
 
           var newWidth = increase * 2 + oldWidth;
           console.log("the new width should be " + oldWidth);
 
+          updateSize(newWidth, layer);
+        }
+        //if current val = rda min
+        //set height to default
+
+        //height should increment until hits default
+        //same with decrement
+        if (currentVal == rdaLower[pyramidVersion][layer - 1]) {
+          element.style.borderRightWidth = "100px";
+          element.style.borderLeftWidth = "100px";
+          element.style.borderBottomWidth = "100px";
+
+          var newWidth = 200 + parseInt(style.width);
           updateSize(newWidth, layer);
         }
       }
@@ -118,10 +141,14 @@
         //cant have negative number of meals
         if (currentVal < 0) {
           currentVal = 0;
+          return;
         }
         display.textContent = currentVal;
 
-        if (currentVal < rdaLower[pyramidVersion][layer - 1]) {
+        if (
+          currentVal < rdaLower[pyramidVersion][layer - 1] ||
+          currentVal > rdaUpper[pyramidVersion][layer - 1]
+        ) {
           var element = document.getElementById(layerClass);
           var style = window.getComputedStyle(element);
           var decrease = parseInt(style.borderBottom) - 10;
@@ -135,6 +162,8 @@
           var newWidth = decrease * 2 + oldWidth;
           updateSize(newWidth, layer);
         }
+        //if currentval = rdaupper
+        //set height to defualt
       }
       function updateSize(newWidth, layer) {
         //iterates from next layer and adjusts the width to keep pyramid shape
