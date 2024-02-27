@@ -12,14 +12,14 @@
       <div class="layer-1" id="layer-1">
         <div class="button-box">
           <button class="increment" onclick="increment(1)">+</button>
-          <button class="display" id="display1">2</button>
+          <button class="display" id="display1">1</button>
           <button class="decrement" onclick="decrement(1)">-</button>
         </div>
       </div>
       <div class="layer-2" id="layer-2">
         <div class="button-box">
           <button class="increment" onclick="increment(2)">+</button>
-          <button class="display" id="display2">2</button>
+          <button class="display" id="display2">1</button>
           <button class="decrement" onclick="decrement(2)">-</button>
         </div>
       </div>
@@ -55,7 +55,10 @@
         <h1 id="record"></h1>
         <p>Enter date in dd/mm/yyyy</p>
         <input type="text" id="date" />
-        <button onclick="isValidDate(document.getElementById('date').value)">
+        <button
+          id="Enter"
+          onclick="isValidDate(document.getElementById('date').value)"
+        >
           Enter
         </button>
       </div>

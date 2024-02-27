@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
   position: relative;
 }
 .layer-1 .increment,
@@ -66,7 +65,6 @@
   border-left: 100px solid transparent;
   border-right: 100px solid transparent;
   border-bottom: 100px solid blue;
-  /* border-bottom-width: 470; */
 }
 .layer-5 .increment,
 .layer-5 .decrement {
@@ -101,10 +99,8 @@
 .button-box {
   display: flex;
   justify-content: center;
-  gap: 5px;
-  margin-top: 35px;
-  /* margin-bottom: auto; */
-  /* position: absolute; */
+  gap: 0px;
+  margin-top: 30px;
 }
 .button-box button {
   width: 40px;

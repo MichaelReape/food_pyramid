@@ -30,6 +30,7 @@ function updateColor() {
     var display = document.getElementById("display" + i);
     var currentVal = parseInt(display.textContent);
 
+    //if greater than rda = red, if ok = green, if below = yellow
     if (currentVal > rdaUpper[pyramidVersion][i - 1]) {
       display.style.backgroundColor = "red";
     } else if (
@@ -45,9 +46,12 @@ function updateColor() {
 
 function isValidDate(date) {
   var display = document.getElementById("record");
+  var btn = document.getElementById("Enter");
   if (validate(date)) {
+    btn.style.backgroundColor = "green";
     display.textContent = "Recorded on " + date;
   } else {
+    btn.style.backgroundColor = "red";
     display.textContent = "Try Again, Enter a valid date";
   }
 }
@@ -56,6 +60,7 @@ function validate(date) {
   let today = new Date();
   const arr = date.split("/");
 
+  //if is not a date format
   for (var i = 0; i < 3; i++) {
     if (isNaN(arr[i])) {
       return false;
@@ -78,10 +83,11 @@ function validate(date) {
     if ((arr[2] % 4 == 0 && arr[2] % 100 != 0) || arr[2] % 400 == 0) {
       leap = true;
     }
+    //february case
     if (arr[1] == 2 && ((leap && arr[0] > 29) || (!leap && arr[0] > 28))) {
       return false;
     }
-    //1 3 5 7 8 10 12
+    //months with 31 days
     else if (
       (arr[1] == 1 ||
         arr[1] == 3 ||
@@ -101,7 +107,6 @@ function validate(date) {
 }
 
 function increment(layer) {
-  // grabs the needed displayid
   //handles the text
   var layerClass = "layer-" + layer;
   var display = document.getElementById("display" + layer);
@@ -110,18 +115,22 @@ function increment(layer) {
 
   display.textContent = currentVal;
 
+  //updates the color based on rda for the version the pyramid is currently in
   updateColor();
 
+  //handles the height adjustment
   var element = document.getElementById(layerClass);
   var style = window.getComputedStyle(element);
-  var increase = parseInt(style.borderBottom) + 10;
+  var increase = parseInt(style.borderBottom) + 5;
 
   element.style.borderRightWidth = increase + "px";
   element.style.borderBottomWidth = increase + "px";
   element.style.borderLeftWidth = increase + "px";
 
+  //grabs the width of current layer
   var currentWidth = parseInt(style.width);
 
+  //calculates the width of next layer and calls update from this layer onwards
   var nextWidth = increase * 2 + currentWidth;
   updateSize(nextWidth, layer);
 }
@@ -140,12 +149,13 @@ function decrement(layer) {
   }
   display.textContent = currentVal;
 
+  //updates the color based on rda for the version the pyramid is currently in
   updateColor();
 
   //handles the height adjustment
   var element = document.getElementById(layerClass);
   var style = window.getComputedStyle(element);
-  var decrease = parseInt(style.borderBottom) - 10;
+  var decrease = parseInt(style.borderBottom) - 5;
 
   element.style.borderRightWidth = decrease + "px";
   element.style.borderBottomWidth = decrease + "px";
@@ -167,6 +177,7 @@ function updateSize(nextWidth, layer) {
     var element = document.getElementById(layerClass);
     var style = window.getComputedStyle(element);
 
+    //special cases to accomodate the gap
     if (i == 2) {
       nextWidth = nextWidth + 20;
       element.style.width = nextWidth + "px";
