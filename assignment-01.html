@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Food Pyramid</title>
+    <link rel="stylesheet" href="assignment-01.css" />
+    <script src="assignment-01.js"></script>
+  </head>
+
+  <body>
+    <h1>My Food Pyramid</h1>
+    <div class="food-pyramid">
+      <div class="layer-1" id="layer-1">
+        <div class="button-box">
+          <button class="increment" onclick="increment(1)">+</button>
+          <button class="display" id="display1">2</button>
+          <button class="decrement" onclick="decrement(1)">-</button>
+        </div>
+      </div>
+      <div class="layer-2" id="layer-2">
+        <div class="button-box">
+          <button class="increment" onclick="increment(2)">+</button>
+          <button class="display" id="display2">2</button>
+          <button class="decrement" onclick="decrement(2)">-</button>
+        </div>
+      </div>
+      <div class="layer-3" id="layer-3">
+        <div class="button-box">
+          <button class="increment" onclick="increment(3)">+</button>
+          <button class="display" id="display3">3</button>
+          <button class="decrement" onclick="decrement(3)">-</button>
+        </div>
+      </div>
+      <div class="layer-4" id="layer-4">
+        <div class="button-box">
+          <button class="increment" onclick="increment(4)">+</button>
+          <button class="display" id="display4">4</button>
+          <button class="decrement" onclick="decrement(4)">-</button>
+        </div>
+      </div>
+      <div class="layer-5" id="layer-5">
+        <div class="button-box">
+          <button class="increment" onclick="increment(5)">+</button>
+          <button class="display" id="display5">5</button>
+          <button class="decrement" onclick="decrement(5)">-</button>
+        </div>
+      </div>
+      <div class="layer-6" id="layer-6">
+        <div class="button-box">
+          <button class="increment" onclick="increment(6)">+</button>
+          <button class="display" id="display6">6</button>
+          <button class="decrement" onclick="decrement(6)">-</button>
+        </div>
+      </div>
+      <div class="record">
+        <h1 id="record"></h1>
+        <p>Enter date in dd/mm/yyyy</p>
+        <input type="text" id="date" />
+        <button onclick="isValidDate(document.getElementById('date').value)">
+          Enter
+        </button>
+      </div>
+      <h1>Select age group</h1>
+      <div class="age">
+        <button onclick="setVersion(0)" id="btn1">1-4 years old</button>
+        <button onclick="setVersion(1)" id="btn2">5+ years old</button>
+      </div>
+    </div>
+  </body>
+</html>
